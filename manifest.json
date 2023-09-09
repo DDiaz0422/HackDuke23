@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Webpage Tracker",
+  "version": "1.0",
+  "description": "Tracks webpage activity, session duration, and estimates energy usage.",
+  "permissions": ["tabs", "activeTab", "webNavigation", "system.memory"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      
+    }
+  },
+  "icons": {
+    
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
