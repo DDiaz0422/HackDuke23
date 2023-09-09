@@ -2,6 +2,16 @@
 
 const total_to_wattage = 0.012; // in kWh
 
+function updateTotalRam() {
+  chrome.tabs.query({}, tabs => {
+    tabs.forEach(tab => {
+      chrome.tabs.sendMessage(tab.id, {action: "get_ram"}, callback = res => {
+        console.log(res.response);
+      })
+    })
+  })
+}
+
 function updatePopup() {
   chrome.runtime.sendMessage({ action: "getWebpageActivity" }, (response) => {
     total_repeats = response.total;

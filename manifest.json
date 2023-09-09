@@ -3,7 +3,7 @@
   "name": "Webpage Tracker",
   "version": "1.0",
   "description": "Tracks webpage activity, session duration, and estimates energy usage.",
-  "permissions": ["tabs", "activeTab", "webNavigation", "system.memory"],
+  "permissions": ["tabs", "activeTab", "webNavigation", "system.memory", "geolocation"],
   "background": {
     "service_worker": "background.js"
   },
