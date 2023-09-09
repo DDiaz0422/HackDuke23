@@ -2,7 +2,7 @@
 // let webpageActivity = {};
 
 const websites_visited = new Set();
-var total_repeats = 0
+var total_repeats = 20 //TODO: CHANGE THIS FOR PRODUCTION
 
 
 chrome.webNavigation.onCommitted.addListener(
@@ -30,6 +30,6 @@ chrome.webNavigation.onCommitted.addListener(
  // Listen for messages from popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action == "getWebpageActivity") {
-    sendResponse({ data: 'yerrr' });
+    sendResponse({ total: total_repeats });
   }
 });
