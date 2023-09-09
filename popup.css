@@ -1,0 +1,22 @@
+/* popup.css */
+
+body {
+    background-color: #222121; /* Dark gray background color */
+    color: rgb(92, 163, 250); /* Bright blue text color */
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
