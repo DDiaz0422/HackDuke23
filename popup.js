@@ -9,7 +9,7 @@ function updatePopup() {
     document.getElementById('text_total').innerHTML = `Tabs Re-opened: ${total_repeats}`
     document.getElementById('text_energy_wasted').innerHTML = `Approximate Energy Wasted ${total_repeats*total_to_wattage} kwH`
     cost = total_repeats*total_to_wattage/national_wattage
-    document.getElementById('text_energy_wasted').innerHTML = `Approximate Cost $${cost.toFixed(2)}`
+    document.getElementById('cost_energy_wasted').innerHTML = `Approximate Cost $${cost.toFixed(2)}`
     console.log(response.total)
   });
 }
