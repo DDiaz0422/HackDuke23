@@ -1,32 +1,35 @@
-let sessionStartTime = Date.now();
-let webpageActivity = {};
+// let sessionStartTime = Date.now();
+// let webpageActivity = {};
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) = {
-  if (changeInfo.status === complete) {
-    const url = tab.url;
-    
-     Track webpage activity
-    if (webpageActivity[url]) {
-      webpageActivity[url].count++;
-    } else {
-      webpageActivity[url] = { count 1 };
+const websites_visited = new Set();
+var total_repeats = 0
+
+
+chrome.webNavigation.onCommitted.addListener(
+    (details) => {
+      // want to get the qualifier to see if the search came from the webpage
+      if (
+          details.transitionQualifiers.includes("from_address_bar") &&
+          details.documentLifecycle == 'active'
+      ) {
+        console.log("this page was loaded from addy bar")
+        // now, we want to actually cache the URIs that have been saved
+        // see if it's already in the websites_visited. If it is, update it
+        if (websites_visited.has(details.url)) {
+          total_repeats++;
+          console.log("already visited this!");
+        }
+        else {
+          websites_visited.add(details.url);
+          console.log("new site visited")
+        }
+      }
     }
-    
-     Calculate session duration
-    const sessionDuration = Math.floor((Date.now() - sessionStartTime)  1000);
+)
 
-     Update session duration and webpage activity in popup
-    chrome.action.setBadgeText({ text sessionDuration.toString() });
-    chrome.action.setBadgeBackgroundColor({ color [255, 0, 0, 255] });
-
-     Send webpage activity data to popup
-    chrome.runtime.sendMessage({ action updateWebpageActivity, data webpageActivity });
-  }
-});
-
- Listen for messages from popup
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) = {
-  if (request.action === getWebpageActivity) {
-    sendResponse({ data webpageActivity });
+ // Listen for messages from popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action == "getWebpageActivity") {
+    sendResponse({ data: 'yerrr' });
   }
 });
