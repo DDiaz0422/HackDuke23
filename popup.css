@@ -5,18 +5,46 @@ body {
     color: rgb(219, 219, 219); /* White text color */
     font-family: Arial, sans-serif;
     padding: 10px;
-  }
-  
-  h2 {
+}
+
+html {
+    width: 200px
+}
+
+h2 {
     font-size: 12px;
-  }
-  
-  ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     margin-bottom: 5px;
-  }
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #ffc0cb;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
   
