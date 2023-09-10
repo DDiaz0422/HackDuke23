@@ -2,8 +2,8 @@
 // let webpageActivity = {};
 
 const websites_visited = new Map();
-var total_repeats = 20 //TODO: CHANGE THIS FOR PRODUCTION
-websites_visited.set('test', 2)
+var total_repeats = 0 //TODO: CHANGE THIS FOR PRODUCTION
+// websites_visited.set('https://sakai.duke.edu/portal/site/a7b5d1b2-e354-45bf-b1ef-b0c51e50c4aa', 2)
 
 
 chrome.webNavigation.onCommitted.addListener(
@@ -18,7 +18,7 @@ chrome.webNavigation.onCommitted.addListener(
             // see if it's already in the websites_visited. If it is, update it
             if (websites_visited.has(details.url)) {
                 previous_count = websites_visited.get(details.url)
-                websites_visited.set(details.url, previous_count++)
+                websites_visited.set(details.url, previous_count+1)
                 // websites_visited
                 total_repeats++;
                 console.log("already visited this!");
