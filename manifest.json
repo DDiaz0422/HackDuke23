@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "eBrowse",
-  "version": "2.0",
+  "version": "1.0",
   "description": "Tracks a count of repeated webpage openings and estimates energy usage and cost while.",
   "permissions": ["webNavigation"],
   "background": {
