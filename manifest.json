@@ -2,8 +2,10 @@
   "manifest_version": 3,
   "name": "eBrowse",
   "version": "1.0",
-  "description": "Tracks a count of repeated webpage openings and estimates energy usage and cost while.",
-  "permissions": ["webNavigation"],
+  "description": "Tracks the use of repeated webpage openings and estimates energy usage and cost",
+  "permissions": [
+    "webNavigation"
+  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -21,11 +23,5 @@
     "32": "./icons/icon32.png",
     "48": "./icons/icon48.png",
     "128": "./icons/icon128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ]
+  }
 }
