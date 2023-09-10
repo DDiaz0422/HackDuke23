@@ -11,6 +11,8 @@ function updatePopup() {
     cost = total_repeats*total_to_wattage/national_wattage
     document.getElementById('cost_energy_wasted').innerHTML = `Approximate Cost $${cost.toFixed(2)}`
     console.log(response.total)
+
+    console.log(`top: ${response.top_site}, top usage: ${response.top_site_usage}`)
   });
 }
 
